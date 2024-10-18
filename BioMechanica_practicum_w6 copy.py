@@ -1,7 +1,17 @@
+'''
+BioMechanica_practicum_w6.py
+
+Make a simulation of an arm with the rotation of the elbow.
+For simplification, imagine it as a double pendulum.
+
+Jerome Kemper
+'''
+
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
-from matplotlib.widgets import Button
 import numpy as np
+
+from matplotlib.widgets import Button
 
 
 def define_body():
@@ -77,6 +87,14 @@ def double_pendulum_simulation(length_upperarm, length_underarm_hand, angles, ex
         running_time += time_step
 
     return data_points_phi1, data_points_phi2, data_points_omega1, data_points_omega2, data_points_acceleration1, data_points_acceleration2, data_timestamps, time_period
+
+
+
+def save_animation(ani, filename='double_pendulum_simulation.gif', fps=30, writer='pillow'):
+    print("SAVING ANIMATION")
+    ani.save(filename, writer=writer, fps=fps)
+    print("DONE")
+
 
 
 def animate_double_pendulum(data1, data2):
@@ -169,6 +187,10 @@ def animate_double_pendulum(data1, data2):
     btn_trace_momentum.on_clicked(toggle_trace_momentum)
 
     plt.show()
+    
+    # uncomment statement to save pendulum as a gif - set at 30 fps.
+    #save_animation(ani, filename='double_pendulum_simulation.gif')
+
 
 
 def main():
