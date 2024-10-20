@@ -75,6 +75,7 @@ def euler_integration(length_pendulum, initial_flick_angle=45, initial_flick_vel
 
     # formula used for simulation
     time_period = 2 * math.pi * math.sqrt(length_pendulum / abs(gravity))
+    print(time_period)
 
     # save as
     data_points_phi = []
